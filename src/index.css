@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-harrods-green: #d2122e;
+  --color-harrods-forest: #0f0f10;
+  --color-harrods-cream: #f7f7f7;
+  --color-harrods-gold: #d2122e;
+  --color-harrods-text: #171717;
+  --color-glass-white: rgba(255, 255, 255, 0.8);
+  --color-glass-border: rgba(255, 255, 255, 0.25);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    @apply antialiased;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--color-harrods-text);
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(210, 18, 46, 0.1), transparent 40%),
+      linear-gradient(135deg, rgba(210, 18, 46, 0.02) 0%, rgba(15, 15, 16, 0.04) 100%);
+  }
+
+  /* Override utility class on body so global background is controlled here. */
+  body.bg-\[\#f9f9f9\] {
+    background-color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.03em;
+  }
+}
+
+.harrods-page {
+  background: #ffffff;
+}
+
+.harrods-header {
+  background: var(--color-harrods-green);
+  border-bottom: 4px solid #a40f24;
+  backdrop-filter: blur(6px);
+}
+
+.harrods-search-input {
+  background-color: #ffffff;
+  border: 1px solid #d0d0d0;
+}
+
+.harrods-search-input:focus {
+  border-color: var(--color-harrods-green);
+  box-shadow: 0 0 0 2px rgba(210, 18, 46, 0.2);
+}
+
+.harrods-pill-button {
+  background: var(--color-harrods-green);
+  color: #fff;
+  border: 1px solid var(--color-harrods-green);
+}
+
+.harrods-pill-button:hover {
+  background: var(--color-harrods-forest);
+  border-color: var(--color-harrods-forest);
+}
+
+.ajax-inverse-button {
+  background: #ffffff;
+  color: var(--color-harrods-green);
+  border: 1px solid #ffffff;
+}
+
+.ajax-inverse-button:hover {
+  background: #ffeef1;
+  border-color: #ffeef1;
+}
+
+.harrods-subtle-button {
+  border: 1px solid #cfcfcf;
+  color: var(--color-harrods-green);
+  background: #fff;
+}
+
+.harrods-subtle-button:hover {
+  border-color: var(--color-harrods-green);
+  background: #fff5f6;
+}
+
+.harrods-filter-title {
+  color: var(--color-harrods-green);
+  letter-spacing: 0.16em;
+}
+
+.harrods-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+}
+
+.frosted-glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/20;
+}
+
+.frosted-glass-dark {
+  @apply bg-black/70 backdrop-blur-md border border-white/10;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
