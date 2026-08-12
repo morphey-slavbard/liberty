@@ -48,6 +48,12 @@ export default function App() {
     setLogoError(false);
   }, [config.logoUrl]);
 
+  useEffect(() => {
+    document.documentElement.style.setProperty('--brand-accent', config.brandColor);
+    document.documentElement.style.setProperty('--color-harrods-green', config.brandColor);
+    document.documentElement.style.setProperty('--color-harrods-gold', config.brandColor);
+  }, [config.brandColor]);
+
   const { data, isLoading, isFetching, isError, error, failureCount } = useDYSearch(debouncedSearch, offset, selectedFilters);
   const { items, facets, totalNumResults } = extractDyPayload(data);
   const isFallback = data?.isFallback ?? false;
@@ -73,7 +79,11 @@ export default function App() {
   return (
     <div
       className="min-h-screen harrods-page text-harrods-text transition-colors duration-500"
-      style={{ '--brand-accent': config.brandColor } as React.CSSProperties}
+      style={{
+        '--brand-accent': config.brandColor,
+        '--color-harrods-green': config.brandColor,
+        '--color-harrods-gold': config.brandColor,
+      } as React.CSSProperties}
     >
       <AnimatePresence>
         {showConfig && <ConfigPanel onClose={() => setShowConfig(false)} />}
