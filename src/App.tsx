@@ -71,20 +71,23 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen harrods-page text-harrods-text transition-colors duration-500">
+    <div
+      className="min-h-screen harrods-page text-harrods-text transition-colors duration-500"
+      style={{ '--brand-accent': config.brandColor } as React.CSSProperties}
+    >
       <AnimatePresence>
         {showConfig && <ConfigPanel onClose={() => setShowConfig(false)} />}
       </AnimatePresence>
 
       {/* Not-configured banner */}
       {!config.feedId && (
-        <div className="bg-amber-50 border-b border-amber-200 px-6 py-3 flex items-center justify-between gap-4">
-          <p className="text-amber-800 text-xs font-medium">
+        <div className="harrods-banner px-6 py-3 flex items-center justify-between gap-4">
+          <p className="text-harrods-green text-xs font-medium">
             <span className="font-bold">Feed ID not configured.</span> Open settings to enter your Feed ID for section {config.sectionId}.
           </p>
           <button
             onClick={() => setShowConfig(true)}
-            className="shrink-0 px-4 py-1.5 bg-amber-800 text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-amber-900 transition-colors"
+            className="harrods-banner-button shrink-0 px-4 py-1.5 text-white text-xs font-bold uppercase tracking-wider rounded transition-colors"
           >
             Open Settings
           </button>

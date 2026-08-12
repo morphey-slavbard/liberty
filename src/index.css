@@ -2,10 +2,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-harrods-green: #d2122e;
+  --color-harrods-green: var(--brand-accent);
   --color-harrods-forest: #0f0f10;
   --color-harrods-cream: #f7f7f7;
-  --color-harrods-gold: #d2122e;
+  --color-harrods-gold: var(--brand-accent);
   --color-harrods-text: #171717;
   --color-glass-white: rgba(255, 255, 255, 0.8);
   --color-glass-border: rgba(255, 255, 255, 0.25);
@@ -13,6 +13,7 @@
 
 @layer base {
   :root {
+    --brand-accent: #d2122e;
     color-scheme: light;
   }
 
@@ -34,8 +35,8 @@
     color: var(--color-harrods-text);
     background-color: #ffffff;
     background-image:
-      radial-gradient(circle at 15% 0%, rgba(210, 18, 46, 0.1), transparent 40%),
-      linear-gradient(135deg, rgba(210, 18, 46, 0.02) 0%, rgba(15, 15, 16, 0.04) 100%);
+      radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--brand-accent) 10%, transparent), transparent 40%),
+      linear-gradient(135deg, color-mix(in srgb, var(--brand-accent) 2%, transparent) 0%, rgba(15, 15, 16, 0.04) 100%);
   }
 
   /* Override utility class on body so global background is controlled here. */
@@ -60,8 +61,21 @@
 
 .harrods-header {
   background: var(--color-harrods-green);
-  border-bottom: 4px solid #a40f24;
+  border-bottom: 4px solid color-mix(in srgb, var(--brand-accent) 78%, #000);
   backdrop-filter: blur(6px);
+}
+
+.harrods-banner {
+  background: color-mix(in srgb, var(--brand-accent) 8%, #fff);
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-accent) 24%, #fff);
+}
+
+.harrods-banner-button {
+  background: var(--brand-accent);
+}
+
+.harrods-banner-button:hover {
+  background: color-mix(in srgb, var(--brand-accent) 82%, #000);
 }
 
 .harrods-search-input {
@@ -71,7 +85,7 @@
 
 .harrods-search-input:focus {
   border-color: var(--color-harrods-green);
-  box-shadow: 0 0 0 2px rgba(210, 18, 46, 0.2);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-accent) 20%, transparent);
 }
 
 .harrods-pill-button {

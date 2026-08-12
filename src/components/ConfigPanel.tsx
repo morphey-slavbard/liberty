@@ -51,6 +51,10 @@ export const ConfigPanel = ({ onClose }: { onClose: () => void }) => {
   };
 
   const handleSave = () => {
+    if (!/^#[0-9A-Fa-f]{6}$/.test(localConfig.brandColor)) {
+      setSettingsStatus('Brand accent must be a 6-digit hex colour, for example #d2122e');
+      return;
+    }
     setConfig(localConfig);
     onClose();
   };
@@ -340,6 +344,30 @@ export const ConfigPanel = ({ onClose }: { onClose: () => void }) => {
                         onChange={(e) => handleLogoUpload(e.target.files?.[0] ?? null)}
                       />
                     </label>
+                  </div>
+
+                  <div>
+                    <label className="mb-1.5 block text-[11px] font-medium text-gray-700">Brand Accent Color</label>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="color"
+                        value={/^#[0-9A-Fa-f]{6}$/.test(localConfig.brandColor) ? localConfig.brandColor : '#d2122e'}
+                        onChange={e => updateField('brandColor', e.target.value)}
+                        className="h-10 w-12 cursor-pointer rounded-lg border border-gray-200 bg-white p-1"
+                        aria-label="Choose brand accent color"
+                      />
+                      <input
+                        type="text"
+                        value={localConfig.brandColor}
+                        className={inputClassName}
+                        placeholder="#d2122e"
+                        pattern="^#[0-9A-Fa-f]{6}$"
+                        maxLength={7}
+                        onChange={e => updateField('brandColor', e.target.value)}
+                        aria-label="Brand accent hex color"
+                      />
+                    </div>
+                    <p className="mt-1.5 text-[11px] text-gray-500">Controls the storefront banner, titles, links, filters, and primary actions.</p>
                   </div>
                 </div>
               </section>

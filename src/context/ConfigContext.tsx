@@ -50,6 +50,7 @@ export interface DYConfig {
   geoCode: string;
   geoRegionCode: string;
   logoUrl: string;
+  brandColor: string;
   currency: string;
   categoryPath: string;
   useDynamicBoosting: boolean;
@@ -98,6 +99,7 @@ const defaultConfig: DYConfig = {
   geoCode: 'US',
   geoRegionCode: 'US_VA',
   logoUrl: '/logo.png',
+  brandColor: '#d2122e',
   currency: '$',
   categoryPath: 'Blueberry / Search',
   useDynamicBoosting: false,

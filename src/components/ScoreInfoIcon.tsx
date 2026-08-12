@@ -61,7 +61,7 @@ const ScoreTooltip = ({ searchScore, scoreBreakdown }: ScoreTooltipProps) => {
       <div className="space-y-3">
         <div>
           <p className="text-xs font-bold uppercase text-gray-600 mb-1">Search Score</p>
-          <p className="text-lg font-bold text-sinsay-red">{searchScore.toFixed(4)}</p>
+          <p className="text-lg font-bold text-harrods-green">{searchScore.toFixed(4)}</p>
         </div>
 
         {breakdowns.length > 0 && (
